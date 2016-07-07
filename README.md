@@ -1,7 +1,7 @@
 Healthchecks Docker
 ===================
 
-Docker image to run the healthchecks django application
+Docker image to run the [healthchecks](https://github.com/healthchecks/healthchecks) django application
 
 *N.B.* Due to no tagging on the healthchecks repository this will always build with the latest commit
 
