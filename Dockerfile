@@ -1,21 +1,19 @@
 FROM ubuntu:16.04
 
-ENV BUILDDEPS "gcc libxml2-dev python3 python3-dev python3-setuptools python3-pip libpq-dev libxslt-dev git libpcre3 libpcre3-dev"
-
 # Install deps
-RUN apt-get update && apt-get install -y $BUILDDEPS --no-install-recommends \
+RUN buildDeps='gcc libxml2-dev python3-setuptools python3-pip libpq-dev libxslt1-dev git libpcre3-dev' \
+    && set -x && apt-get -qq update \
+    && apt-get install -y python3 python3-dev libxml2 libxslt1.1 $buildDeps --no-install-recommends \
+    && git clone https://github.com/healthchecks/healthchecks.git /src \
+    && cd /src && pip3 install --no-cache-dir -r requirements.txt \
+    && pip3 install --no-cache-dir uwsgi \
+    && apt-get purge -y --auto-remove $buildDeps \
+    && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
 
-RUN git clone https://github.com/healthchecks/healthchecks.git /src
 WORKDIR /src
 
-RUN pip3 install --no-cache-dir -r requirements.txt \
-    && pip3 install --no-cache-dir uwsgi
-
-RUN apt-get purge -y --auto-remove $BUILDEPS
-
 COPY local_settings.py /src/hc
-
 COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 9090
