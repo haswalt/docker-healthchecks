@@ -4,7 +4,7 @@ Local settings for the HealthChecks app
 
 import os
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 DEBUG = os.getenv('HEALTHCHECKS_DEBUG', False)
 
 HOST = os.getenv('HEALTHCHECKS_HOST', "localhost")
@@ -40,4 +40,3 @@ if os.environ.get("HEALTHCHECKS_DB") == "mysql":
             'TEST': {'CHARSET': 'UTF8'}
         }
     }
-
