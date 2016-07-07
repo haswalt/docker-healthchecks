@@ -17,4 +17,6 @@ RUN apt-get purge -y --auto-remove $BUILDEPS
 COPY uwsgi.ini /src
 COPY local_settings.py /src/hc
 
+EXPOSE 9090
+
 CMD [ "uwsgi", "--ini", "uwsgi.ini" ]
