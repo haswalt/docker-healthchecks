@@ -28,10 +28,14 @@ docker run -p 9090:9090 \
            -e HEALTHCHECKS_DEBUG=False \
            -e HEALTHCHECKS_HOST=localhost \
            -e HEALTHCHECKS_SITE_ROOT="http://localhost:8000" \
-           -e HEALTHCHECKS_FROM_EMAIL="healthchecks@example.org" \
            -e HEALTHCHECKS_DB=mysql \
            -e HEALTHCHECKS_DB_HOST=localhost \
            -e HEALTHCHECKS_DB_USER=root \
            -e HEALTHCHECKS_DB_PASSWORD=pa55word\
+           -e HEALTHCHECKS_EMAIL_FROM="healthchecks@example.org" \
+           -e HEALTHCHECKS_EMAIL_HOST=localhost \
+           -e HEALTHCHECKS_EMAIL_PORT=25 \
+           -e HEALTHCHECKS_EMAIL_USER="" \
+           -e HEALTHCHECKS_EMAIL_PASSWORD="" \
           haswalt/healthchecks
 ```
