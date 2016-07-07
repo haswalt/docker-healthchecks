@@ -15,6 +15,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt \
 RUN apt-get purge -y --auto-remove $BUILDEPS
 
 COPY uwsgi.ini /src
-COPY local_settings.py src/hc
+COPY local_settings.py /src/hc
 
 CMD [ "uwsgi", "--ini", "uwsgi.ini" ]
