@@ -21,4 +21,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 EXPOSE 9090
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-CMD [ "uwsgi", "--master", "--http-socket", ":9090", "--processes", "4", "--chdir", "/src", "--module", "hc.wsgi:application", "--enable-threads", "--thunder-lock" ]
+CMD [ "uwsgi", "--master", "--http-socket", ":9090", "--processes", "4", "--chdir", "/src", "--module", "hc.wsgi:application", "--enable-threads", "--thunder-lock", "--check-static", "/src" ]
