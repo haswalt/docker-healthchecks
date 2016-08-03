@@ -7,7 +7,7 @@ RUN buildDeps='gcc libxml2-dev python3-setuptools python3-pip libpq-dev libxslt1
     && ln -s /usr/bin/python3 /usr/bin/python \
     && git clone https://github.com/healthchecks/healthchecks.git /src \
     && cd /src && pip3 install --no-cache-dir -r requirements.txt \
-    && pip3 install --no-cache-dir uwsgi mysqlclient \
+    && pip3 install --no-cache-dir uwsgi mysqlclient psycopg2 pyscopg \
     && apt-get purge -y --auto-remove $buildDeps \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
