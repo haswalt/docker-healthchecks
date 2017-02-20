@@ -17,7 +17,19 @@ docker build -t haswalt/healthchecks .
 docker run -p 9090:9090 haswalt/healthchecks
 ```
 
-The container is no accepting requests on port 9090.
+The container is now accepting requests on port 9090.
+
+## Admin Access
+
+By default no admin user is created. To create your first admin user connect to your running docker container and run:
+
+```
+./manage.py createsuperuser
+```
+
+You will now be able to login to the admin at http://localhost:9090/admin.
+
+*N.B.* There is no validation so ensure you correctly set an email address and password or you may find yourself unable to login.
 
 ## Configuration
 
@@ -27,7 +39,7 @@ This image is built to take basic configuration from environment variables passe
 docker run -p 9090:9090 \
            -e HEALTHCHECKS_DEBUG=False \
            -e HEALTHCHECKS_HOST=localhost \
-           -e HEALTHCHECKS_SITE_ROOT="http://localhost:8000" \
+           -e HEALTHCHECKS_SITE_ROOT="http://localhost:9090" \
            -e HEALTHCHECKS_DB=mysql \
            -e HEALTHCHECKS_DB_HOST=localhost \
            -e HEALTHCHECKS_DB_USER=root \
