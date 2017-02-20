@@ -1,5 +1,6 @@
 Healthchecks Docker
 ===================
+[![](https://images.microbadger.com/badges/version/haswalt/docker-healthchecks.svg)](https://microbadger.com/images/haswalt/docker-healthchecks "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/haswalt/docker-healthchecks.svg)](https://microbadger.com/images/haswalt/docker-healthchecks "Get your own image badge on microbadger.com")
 
 Docker image to run the [healthchecks](https://github.com/healthchecks/healthchecks) django application
 
