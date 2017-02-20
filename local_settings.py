@@ -21,7 +21,7 @@ if os.environ.get("HEALTHCHECKS_DB") == "postgres":
     DATABASES = {
         'default': {
             'ENGINE':   'django.db.backends.postgresql',
-            'NAME':     'hc',
+            'NAME':     os.getenv("HEALTHCHECKS_DB_NAME", "hc"),
             'USER':     os.getenv('HEALTHCHECKS_DB_USER', "postgres"),
             'PASSWORD': os.getenv('HEALTHCHECKS_DB_PASSWORD', ""),
             'HOST':     os.getenv('HEALTHCHECKS_DB_HOST', "localhost"),
@@ -35,7 +35,7 @@ if os.environ.get("HEALTHCHECKS_DB") == "mysql":
             'ENGINE': 'django.db.backends.mysql',
             'USER':     os.getenv('HEALTHCHECKS_DB_USER', "root"),
             'PASSWORD': os.getenv('HEALTHCHECKS_DB_PASSWORD', ""),
-            'NAME':     'hc',
+            'NAME':     os.getenv("HEALTHCHECKS_DB_NAME", "hc"),
             'HOST': os.getenv('HEALTHCHECKS_DB_HOST', "localhost"),
             'TEST': {'CHARSET': 'UTF8'}
         }
