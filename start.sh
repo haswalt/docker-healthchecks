@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-uwsgi --master \
+gosu hc uwsgi --master \
     --http-socket :9090 \
     --processes 4 \
     --chdir /src \
