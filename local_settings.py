@@ -8,7 +8,7 @@ ALLOWED_HOSTS = ['*']
 DEBUG = os.getenv('HEALTHCHECKS_DEBUG', False)
 
 HOST = os.getenv('HEALTHCHECKS_HOST', "localhost")
-SITE_ROOT = os.getenv('HEALTHCHECKS_SITE_ROOT', "http://localhost:8000")
+SITE_ROOT = os.getenv('HEALTHCHECKS_SITE_ROOT', "http://localhost:9090")
 PING_ENDPOINT = SITE_ROOT + "/ping/"
 
 DEFAULT_FROM_EMAIL = os.getenv('HEALTHCHECKS_EMAIL_FROM', "healthchecks@example.org")
