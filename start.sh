@@ -8,4 +8,5 @@ gosu hc uwsgi --master \
     --module hc.wsgi:application \
     --enable-threads \
     --thunder-lock \
-    --static-map /static=/src/static-collected
+    --static-map /static=/src/static-collected \
+    --attach-daemon "/src/manage.py sendalerts"
